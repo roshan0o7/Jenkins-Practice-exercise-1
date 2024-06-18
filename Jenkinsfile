@@ -2,7 +2,7 @@ pipeline {
     agent any
 environment {
         SLACK_CHANNEL = '#general'  // or use '@roshan-sax1539' for direct message
-        SLACK_CREDENTIAL_ID = 'slackToken-v4' // The ID you used in the Jenkins configuration
+        SLACK_CREDENTIAL_ID = '3' // The ID you used in the Jenkins configuration
     }
 stages {
     stage('Run Script') {
