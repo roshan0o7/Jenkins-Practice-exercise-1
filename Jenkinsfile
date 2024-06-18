@@ -3,6 +3,7 @@ pipeline {
 environment {
         SLACK_CHANNEL = '#general'  // or use '@roshan-sax1539' for direct message
         SLACK_CREDENTIAL_ID = '3' // The ID you used in the Jenkins configuration
+        SLACK_TEAM_DOMAIN = 'roshan-sax1539'
     }
 stages {
     stage('Run Script') {
@@ -22,7 +23,7 @@ post {
                 channel: env.SLACK_CHANNEL,
                 color: 'good',
                 message: "Build Successful: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
-                teamDomain: 'roshan-sax1539.slack.com',
+                teamDomain: env.SLACK_TEAM_DOMAIN,
                 tokenCredentialId: env.SLACK_CREDENTIAL_ID
             )
         }
@@ -31,7 +32,7 @@ post {
                 channel: env.SLACK_CHANNEL,
                 color: 'danger',
                 message: "Build Failed: ${env.JOB_NAME} ${env.BUILD_NUMBER}",
-                teamDomain: 'roshan-sax1539.slack.com',
+                teamDomain: env.SLACK_TEAM_DOMAIN,
                 tokenCredentialId: env.SLACK_CREDENTIAL_ID
             )
         }
